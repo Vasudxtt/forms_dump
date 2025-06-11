@@ -7,7 +7,7 @@ $errors = [];
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Validation
-  if (empty($_POST["name"])) {
+  if (empty($_POST["fname"])) {
     $errors[] = "Name is required.";
   } else {
     $name = htmlspecialchars($_POST["name"]);
@@ -76,28 +76,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   ?>
 
   <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    Name: <input type="text" name="name" value="<?php echo $name; ?>"><br><br>
-    Email: <input type="text" name="email" value="<?php echo $email; ?>"><br><br>
-    Age: <input type="number" name="age" value="<?php echo $age; ?>"><br><br>
+    Name: <input type="text" name="name" value=""><br><br>
+    Email: <input type="text" name="email" value=""><br><br>
+    Age: <input type="number" name="age" value=""><br><br>
     Gender:
-    <input type="radio" name="gender" value="Male" <?php if ($gender == "Male")
-      echo "checked"; ?>> Male
-    <input type="radio" name="gender" value="Female" <?php if ($gender == "Female")
-      echo "checked"; ?>> Female<br><br>
+    <input type="radio" name="gender" value="Male"> Male
+    <input type="radio" name="gender" value="Female" > Female<br><br>
     Subjects:<br>
-    <input type="checkbox" name="subjects[]" value="PHP" <?php if (in_array("PHP", $subjects))
-      echo "checked"; ?>>
+    <input type="checkbox" name="subjects[]" value="PHP">
     PHP<br>
-    <input type="checkbox" name="subjects[]" value="JavaScript" <?php if (in_array("JavaScript", $subjects))
-      echo "checked"; ?>> JavaScript<br>
-    <input type="checkbox" name="subjects[]" value="HTML" <?php if (in_array("HTML", $subjects))
-      echo "checked"; ?>>
+    <input type="checkbox" name="subjects[]" value="JavaScript"> JavaScript<br>
+    <input type="checkbox" name="subjects[]" value="HTML">
     HTML<br>
-    <input type="checkbox" name="subjects[]" value="CSS" <?php if (in_array("CSS", $subjects))
-      echo "checked"; ?>>
+    <input type="checkbox" name="subjects[]" value="CSS" >
     CSS<br><br>
     Comments:<br>
-    <textarea name="comment"><?php echo $comment; ?></textarea><br><br>
+    <textarea name="comment"></textarea><br><br>
     <input type="submit" value="Register">
   </form>
 </body>
