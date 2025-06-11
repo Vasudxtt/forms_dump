@@ -66,7 +66,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-$sql = "INSERT INTO entries (fname,email,age,gender,favsubject,comment)
+$sql = "INSERT INTO info (fname,email,age,gender,favsubject,comment)
 VALUES ('$name', '$email', '$age','$gender','$favsub','$comment')";
 
 if ($conn->query($sql) === TRUE) {

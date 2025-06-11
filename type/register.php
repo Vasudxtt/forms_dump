@@ -42,7 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   // Insert if no errors
   if (empty($errors)) {
     $subject_str = implode(", ", $subjects);
-    $stmt = $conn->prepare("INSERT INTO entries (fname, email, age, gender, favsubject, comment) VALUES (?, ?, ?, ?, ?, ?)");
+    $stmt = $conn->prepare("INSERT INTO info (fname, email, age, gender, favsubject, comment) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->bind_param("ssisss", $name, $email, $age, $gender, $subject_str, $comment);
 
     if ($stmt->execute()) {
